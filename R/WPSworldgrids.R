@@ -28,16 +28,16 @@ setMethod("getProcess", signature(x = "WPS"), function(x){
 })
 
 ## get arguments:
-setMethod("describe", signature(x = "WPS"), function(x, request = "describeprocess", identifier){
-  if(requireNamespace("XML", quietly = TRUE)){
-    uri = paste(paste(x@server$URI, "?", sep=""), paste(x@server$service, x@server$version, paste("request=", request, sep=""), paste("identifier=", identifier, sep=""), sep="&"), sep="")
-    ret <- XML::xmlTreeParse(uri, useInternalNodes = TRUE)
-    ret <- unlist(XML::xmlToList(ret, addAttributes=FALSE))
-    # convert to a table:
-    ret <- data.frame(field=gsub("\\.", "_", attr(ret, "names")), value=paste(ret), stringsAsFactors = FALSE)
-    return(ret)
-  }  
-})
+#setMethod("describe", signature(x = "WPS"), function(x, request = "describeprocess", identifier){
+#  if(requireNamespace("XML", quietly = TRUE)){
+#    uri = paste(paste(x@server$URI, "?", sep=""), paste(x@server$service, x@server$version, paste("request=", request, sep=""), paste("identifier=", identifier, sep=""), sep="&"), sep="")
+#    ret <- XML::xmlTreeParse(uri, useInternalNodes = TRUE)
+#    ret <- unlist(XML::xmlToList(ret, addAttributes=FALSE))
+#    # convert to a table:
+#    ret <- data.frame(field=gsub("\\.", "_", attr(ret, "names")), value=paste(ret), stringsAsFactors = FALSE)
+#    return(ret)
+#  }  
+#})
 
 ## overlay points (single point)
 setMethod("over", signature(x = "WPS", y = "SpatialPoints"), 
