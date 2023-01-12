@@ -1,4 +1,4 @@
-import(utils, methods)
+import(utils, methods, XML)
 
 importFrom("tools", file_ext)
 importFrom("stats", prcomp, predict, shapiro.test, smooth.spline, runif, as.formula, formula, sd, ks.test, weighted.mean, aggregate, fitted, resid, na.pass, ave, var, rnorm, fitted.values, quantile, density, na.omit, complete.cases, family, gaussian, glm, weights, step)
